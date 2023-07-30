@@ -1,0 +1,112 @@
+﻿//----------------------------------------------
+//        Realistic Car Controller Pro
+//
+// Copyright © 2014 - 2023 BoneCracker Games
+// https://www.bonecrackergames.com
+// Ekrem Bugra Ozdoganlar
+//
+//----------------------------------------------
+
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+/// <summary>
+/// Fixed camera system for RCCP Camera. It simply parents the RCCP Camera, and calculates target position, rotation, FOV, etc...
+/// </summary>
+[AddComponentMenu("BoneCracker Games/Realistic Car Controller Pro/Camera/RCCP Fixed Camera")]
+public class RCCP_FixedCamera : RCCP_Singleton<RCCP_FixedCamera> {
+
+    private Vector3 targetPosition;     //  Target position.
+    public float maxDistance = 50f;     //  Max distance.
+    private float distance;     //  Current distance.
+
+    public float minimumFOV = 20f;      //  FOV limits.
+    public float maximumFOV = 60f;
+
+    public bool canTrackNow = false;        //  Can track now?
+
+    private void LateUpdate() {
+
+        //  If can't track now, return.
+        if (!canTrackNow)
+            return;
+
+        // If current camera is null, return.
+        if (!RCCP_SceneManager.Instance.activePlayerCamera)
+            return;
+
+        // If current camera is null, return.
+        if (RCCP_SceneManager.Instance.activePlayerCamera.cameraTarget.playerVehicle == null)
+            return;
+
+        //  Getting camera target.
+        Transform target = RCCP_SceneManager.Instance.activePlayerCamera.cameraTarget.playerVehicle.transform;
+
+        //  Getting speed of the vehicle and calculating the distance.
+        float speed = Mathf.Abs(RCCP_SceneManager.Instance.activePlayerCamera.cameraTarget.playerVehicle.speed);
+        distance = Vector3.Distance(transform.position, target.position);
+
+        //  Calculating and setting field of view of the camera.
+        RCCP_SceneManager.Instance.activePlayerCamera.targetFieldOfView = Mathf.Lerp(distance > maxDistance / 10f ? maximumFOV : 70f, minimumFOV, (distance * 1.5f) / maxDistance);
+
+        //  Setting target position.
+        targetPosition = target.transform.position;
+        targetPosition += target.transform.rotation * Vector3.forward * (speed * .05f);
+
+        //  Moving camera to the correct position.
+        transform.Translate((-target.forward * speed) / 50f * Time.deltaTime);
+
+        //  Always look at the target.
+        transform.LookAt(targetPosition);
+
+        //  If distance exceeds max distance, change position.
+        if (distance > maxDistance)
+            ChangePosition();
+
+    }
+
+    /// <summary>
+    /// Changes position of the camera.
+    /// </summary>
+    public void ChangePosition() {
+
+        //  If can't track now, return.
+        if (!canTrackNow)
+            return;
+
+        // If current camera is null, return.
+        if (!RCCP_SceneManager.Instance.activePlayerCamera)
+            return;
+
+        // If current camera is null, return.
+        if (RCCP_SceneManager.Instance.activePlayerCamera.cameraTarget.playerVehicle == null)
+            return;
+
+        //  Getting camera target.
+        Transform target = RCCP_SceneManager.Instance.activePlayerCamera.cameraTarget.playerVehicle.transform;
+
+        if (target == null)
+            return;
+
+        //  Creating random angle.
+        float randomizedAngle = Random.Range(-15f, 15f);
+        RaycastHit hit;
+
+        //  Raycasting. If hits, translate the camera to the hit point.
+        if (Physics.Raycast(target.position, Quaternion.AngleAxis(randomizedAngle, target.up) * target.forward, out hit, maxDistance) && !hit.transform.IsChildOf(target) && !hit.collider.isTrigger) {
+
+            transform.position = hit.point;
+            transform.LookAt(target.position + new Vector3(0f, Mathf.Clamp(randomizedAngle, .5f, 5f), 0f));
+            transform.position += transform.rotation * Vector3.forward * 5f;
+
+        } else {
+
+            transform.position = target.position + new Vector3(0f, Mathf.Clamp(randomizedAngle, 0f, 5f), 0f);
+            transform.position += Quaternion.AngleAxis(randomizedAngle, target.up) * target.forward * (maxDistance * .9f);
+
+        }
+
+    }
+
+}

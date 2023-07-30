@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98104e7a02e1d8648a8f0e96de598300, type: 3}
+  m_Name: RCCP_ChangableWheels
+  m_EditorClassIdentifier: 
+  wheels:
+  - wheel: {fileID: 5937049272481667453, guid: ec565bb9cee30de42937a45cba5fc82c, type: 3}
+  - wheel: {fileID: 8947716701004765983, guid: d62d54c135cf1434f9a11a0652614124, type: 3}
+  - wheel: {fileID: 6747009115032387668, guid: 690baf793daf4854d90d76fba9396b9a, type: 3}
+  - wheel: {fileID: 6236238426685473945, guid: 4c52c06b944184740880f36199fb2ae6, type: 3}
+  - wheel: {fileID: 3074734156915735578, guid: e00501c0f4ae10f40a419ca2f95f2190, type: 3}
+  - wheel: {fileID: 744404590757720361, guid: ab1f44ae4754a194f96590fe4c56c356, type: 3}
+  - wheel: {fileID: 7977883962703259494, guid: aeb7c1766f4d2924191038e06caebd76, type: 3}
