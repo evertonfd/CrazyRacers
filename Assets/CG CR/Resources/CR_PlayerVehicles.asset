@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad95317877c12a46a08a039b83c0eca, type: 3}
+  m_Name: CR_PlayerVehicles
+  m_EditorClassIdentifier: 
+  cars:
+  - vehicle: {fileID: 5423464063005832817, guid: 5f9f8ec61e533924e8551b3e8e3270a6, type: 3}
+    price: 0
+  - vehicle: {fileID: -157799922761488815, guid: 4e13477a0a321ad45b97ea741e82237a, type: 3}
+    price: 25000
+  - vehicle: {fileID: -1572236305728495057, guid: 31fb2b7e36aff524ba1471a8b918248f, type: 3}
+    price: 80000
+  - vehicle: {fileID: -5372663244945683233, guid: 4ca08cb7c5baafc49bd72d50979bb539, type: 3}
+    price: 50000
+  - vehicle: {fileID: 6867010768591936658, guid: 9339441229ffbf14db238b1c0cd02d66, type: 3}
+    price: 65000
+  - vehicle: {fileID: 2188504864338316855, guid: c4a90b9d2f7279b42b913df6124e3b1b, type: 3}
+    price: 100000
+  - vehicle: {fileID: 3154253010270442921, guid: 94a8418e96fedde4dbb0829b49577916, type: 3}
+    price: 140000
