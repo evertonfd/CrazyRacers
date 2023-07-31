@@ -1,0 +1,18 @@
+
+NOTES:
+
+1. Ground Mud texture is terrain only as it contains smoothness in alpha and does not look good on a mesh tile
+
+2. Post processing stack v2.0 needs to be included in the project in order to use the post processing profiles indluded in the pack
+
+3. All sets are modular and you create different structures from each one.
+
+4. The "Industrial_Zone_Factory_Set" is designed as a structure only and player can not get inside
+
+
+For feedback, requests or any question please email me at:
+vencious.games@gmail.com
+
+A review and rate are greatly appreciated !
+
+Thank You !
