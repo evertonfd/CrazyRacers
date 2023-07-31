@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -163095183, guid: 5765706fab846aa40b62d45f2b854f5b, type: 3}
+  m_Name: iTSMainData
+  m_EditorClassIdentifier: 
+  MultipleSelectionOrigin: {x: 0, y: 0, z: 0}
+  MultipleSelectionRadius: 10
+  MultipleSelectionBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 50, y: 50, z: 50}
+  useSphereSelection: 0
+  enableUndoForLanesDeletion: 0
+  enableUndoForCleaingRoadData: 0
+  allowDeadEndLanes: 0
+  nearbyPointsRadius: 10
+  maxLaneCachedPerFrame: 50
+  calculateNerbyPointsForPlayerFinding: 0
+  batchLCSettings:
+    defaultVehicleType: 0
+    setVehicleTypeLane: 0
+    setVehicleTypeConnector: 0
+    defaultLaneWidth: 2.5
+    setLaneWidth: 0
+    defaultMaxSpeed: 50
+    setMaxSpeed: 0
+    defaultMaxDensity: 1
+    setMaxDensity: 0
+    defaultDirection: 2
+    setDirection: 0
+    defaultForcedStop: 0
+    setForcedStop: 0
+    defaultPassPriority: 1
+    setPassPriority: 0
+    selectionPosition: {x: 0, y: 0, z: 0}
+  autoLaneConnectionSettings:
+    maxDistance: 20
+    maxAngle: 120

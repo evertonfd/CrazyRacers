@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400004}
+  - component: {fileID: 11400006}
+  m_Layer: 0
+  m_Name: iTSSpawnerLow No Peds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100004}
+  m_LocalRotation: {x: 0.0000005497777, y: 0.00000032996158, z: -0.0000005045951, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 400010}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -260812457, guid: ac3101a53374db749b8f8f604905610e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initializeOnStart: 1
+  cars:
+  - cars: {fileID: 100032, guid: fb395460b23c43843ba1104c553bf743, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 014e5c7cd30a8ee439e94c65c0cee51d, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: d9ff19eaaaeb40e4cb96e6eec6e2a407, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: f4fc48b3e6470bf448233c2efdb11510, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 25cc83db12a6aa5438886b81af06b084, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 5c10d11c2e2e4364a938aedce302a425, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 2f2ea2673b5820c40a92379b7add68af, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 91614ad4792ac54448463c6d4db12352, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: ac417e4d730b9af46bdbf149669c1a5b, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 18d3b33b02086b64f88dbfec67c866a6, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 0fbfddcdc7589c44fab6a96c40a59f92, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 14f40bd8838cfd24faae057d657e5b75, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: b100ff4a4985ca844abfbf965bfeb141, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: b283f83b35654914b9af2c7e2170b937, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 0487bc4a48f990743bf0dc9e4290fc4f, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 646f3d6d0be0e844faaa18ea3b1ee1a7, type: 3}
+    frequency: 3
+  - cars: {fileID: 100032, guid: 43b3f382c9e013044b5749735bae7536, type: 3}
+    frequency: 3
+  - cars: {fileID: 100136, guid: c3a883bec06abf542a4200fa8d02567e, type: 3}
+    frequency: 5
+  totalAmountOfCars: 50
+  amount: 50
+  maxDistance: 200
+  offset: 50
+  closerRange: 50
+  refreshTime: 0.02
+  manager: {fileID: 0}
+  unusedCarsPosition: {x: 50000, y: 50000, z: 50000}
+  respawnIfUpSideDown: 1
+  respawnUpSideDownTime: 5
+  respawnAltitude: 0.3
+  disableMultiThreading: 0
+  globalPointOffset: {x: 0, y: 0, z: 0}
+  carsCheckedPerFrame: 50
+  initialNotSpawningRadius: 10
+  transformSpawningCheck: []
+  carsArePrefabs: 1
+--- !u!1 &100010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400010}
+  - component: {fileID: 2000000}
+  - component: {fileID: 12400000}
+  - component: {fileID: 8100000}
+  - component: {fileID: 11400020}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100010}
+  m_LocalRotation: {x: -0.07738454, y: 0.91204023, z: -0.34790954, w: -0.20286255}
+  m_LocalPosition: {x: 706.06506, y: 1.6369083, z: 596.88477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 400004}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2000000
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 650
+  field of view: 60
+  orthographic: 0
+  orthographic size: 100
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: 1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!124 &12400000
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+--- !u!81 &8100000
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+--- !u!114 &11400020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07eef43a75c4f1d4794842978698d51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
