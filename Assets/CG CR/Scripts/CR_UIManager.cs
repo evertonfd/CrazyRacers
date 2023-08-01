@@ -43,13 +43,14 @@ public class CR_UIManager : MonoBehaviour {
     public GameObject winRacePanel;
     public GameObject loseRacePanel;
     public GameObject returningGaragePanel;
+    public GameObject rewardedAdsButton;
 
     // Update is called once per frame
     void Update() {
 
         if (!CR_GameplayManager.Instance.player)
             return;
-        
+
         moneyText.text = "$ " + CR_GameplayManager.Instance.player.TotalMoney.ToString("F0");
         scoreText.text = CR_GameplayManager.Instance.player.TotalScore.ToString("F0");
         speedingScoreText.text = CR_GameplayManager.Instance.player.score_Speeding.ToString("F0");
@@ -75,7 +76,12 @@ public class CR_UIManager : MonoBehaviour {
             bustedPanel.SetActive(true);
             bustedPanelText.text = "You must pay fine to be free! Click to pay " + "$ " + (CR_GameplayManager.Instance.player.TotalMoney / 10f).ToString("F0");
 
-}
+            if (CR_API.GetMoney() != 0)
+                rewardedAdsButton.SetActive(true);
+            else
+                rewardedAdsButton.SetActive(false);
+
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
 
@@ -173,6 +179,37 @@ public class CR_UIManager : MonoBehaviour {
             SceneManager.LoadScene(0);
         else
             PhotonNetwork.LoadLevel(0);
+
+    }
+
+    public void WatchRewardedAds() {
+
+        StartCoroutine(WatchRewardedAdsWithDelay());
+
+    }
+
+    private IEnumerator WatchRewardedAdsWithDelay() {
+
+        AudioListener.pause = true;
+
+        yield return new WaitForFixedUpdate();
+
+        CrazyAds.Instance.beginAdBreakRewarded(WatchedRewardedAdsWithSuccess, WatchedRewardedAdsWithFail);
+
+    }
+
+    private void WatchedRewardedAdsWithSuccess() {
+
+        AudioListener.pause = false;
+
+        CR_GameplayManager.Instance.player.SetFree();
+        bustedPanel.SetActive(false);
+
+    }
+
+    private void WatchedRewardedAdsWithFail() {
+
+        AudioListener.pause = false;
 
     }
 

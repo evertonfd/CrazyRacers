@@ -5,6 +5,7 @@ using Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using CrazyGames;
 
 public class CR_Photon : Photon.Pun.MonoBehaviourPunCallbacks {
 
@@ -26,6 +27,7 @@ public class CR_Photon : Photon.Pun.MonoBehaviourPunCallbacks {
     public GameObject nickNameEnter;
     public GameObject joining;
     public string nickName = "";
+    public bool inproperName = false;
 
     public override void OnEnable() {
 
@@ -35,6 +37,13 @@ public class CR_Photon : Photon.Pun.MonoBehaviourPunCallbacks {
     }
 
     public void ConnectToPhoton() {
+
+        if (inproperName) {
+
+            CR_UIInformer.Instance.Display("Invalid Entry!", "Please use a proper name");
+            return;
+
+        }
 
         Debug.Log("Connecting to server");
         PhotonNetwork.NickName = nickName;
@@ -59,14 +68,56 @@ public class CR_Photon : Photon.Pun.MonoBehaviourPunCallbacks {
 
     public void SetNickName(TMP_InputField inputField) {
 
-        if (CheckBadWord.HasBadWord(inputField.text)) {
+        if (CheckBadWord.HasBadWord(inputField.text))
+            inproperName = true;
+        else
+            inproperName = false;
+
+        nickName = inputField.text;
+        //StartGame();
+
+    }
+
+    public void StartGame() {
+
+        if (inproperName) {
 
             CR_UIInformer.Instance.Display("Invalid Entry!", "Please use a proper name");
             return;
 
         }
 
-        nickName = inputField.text;
+        if (!CR_MainMenuManager.Instance.watchedAd) {
+
+            StartCoroutine(WatchRewardedAdsDelay());
+
+        }else {
+
+            ConnectToPhoton();
+
+        }
+
+    }
+
+    private IEnumerator WatchRewardedAdsDelay() {
+
+        AudioListener.pause = true;
+        yield return new WaitForFixedUpdate();
+
+        CrazyAds.Instance.beginAdBreakRewarded(WatchedRewardedAdsWithSuccess, WatchedRewardedAdsWithFail);
+
+    }
+
+    private void WatchedRewardedAdsWithSuccess() {
+
+        AudioListener.pause = false;
+        ConnectToPhoton();
+
+    }
+
+    private void WatchedRewardedAdsWithFail() {
+
+        AudioListener.pause = false;
         ConnectToPhoton();
 
     }
@@ -115,7 +166,7 @@ public class CR_Photon : Photon.Pun.MonoBehaviourPunCallbacks {
     public override void OnDisable() {
 
         PhotonNetwork.RemoveCallbackTarget(this);
-        
+
 
     }
 

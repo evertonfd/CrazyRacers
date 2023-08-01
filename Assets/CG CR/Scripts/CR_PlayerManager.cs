@@ -341,7 +341,7 @@ public class CR_PlayerManager : MonoBehaviourPun, IPunObservable {
         if (!police)
             return;
 
-        felony += 25f;
+        felony += 26f;
 
         if (felony > 100f)
             felony = 100f;

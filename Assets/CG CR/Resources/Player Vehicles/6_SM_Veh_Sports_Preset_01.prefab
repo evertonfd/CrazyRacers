@@ -15084,6 +15084,7 @@ MonoBehaviour:
   money_Drift: 0
   money_NearMiss: 0
   money_Penalty: 0
+  money_Missions: 0
   felony: 0
   closestPolice: {fileID: 0}
   bustedTime: 3

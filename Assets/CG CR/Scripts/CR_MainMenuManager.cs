@@ -88,7 +88,7 @@ public class CR_MainMenuManager : MonoBehaviour {
             Debug.Log(systemInfo.device.type); // possible values: "desktop", "tablet", "mobile"
 
             if (systemInfo.device.type == "tablet" || systemInfo.device.type == "mobile")
-                RCCP_Settings.Instance.mobileControllerEnabled = false;
+                RCCP_Settings.Instance.mobileControllerEnabled = true;
             else
                 RCCP_Settings.Instance.mobileControllerEnabled = false;
 
